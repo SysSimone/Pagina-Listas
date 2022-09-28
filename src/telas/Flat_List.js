@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import { View, FlatList, Text, StyleSheet, StatusBar } from 'react-native';
+import { Entypo } from '@expo/vector-icons'; 
 
 
 /*=================================================================================================
@@ -12,31 +13,15 @@ e vai renderizar cada um na lista, e ele tem o item e o index(indice) como cada 
 
 
 const Flat_List = () => {
-    const week_list = [
-    { nome: "Lila", key: "1" },
-    { nome: "Pirata", key: "2" },
-    { nome: "Charlote", key: "3" },
-    { nome: "Henry", key: "4" },
-    { nome: "Dog", key: "5" },
-    { nome: "Cleitin", key: "6" },
-    { nome: "Pasquim", key: "7" },
-    { nome: "Mel", key: "8" },
-    { nome: "Nêssa", key: "9" },
-    { nome: "Pasquim", key: "10" },
-    { nome: "Mel", key: "11" },
-    { nome: "Nêssa", key: "12" },
-    { nome: "Lila", key: "13" },
-    { nome: "Pirata", key: "14" },
-    { nome: "Charlote", key: "15" },
-    { nome: "Henry", key: "16" },
-    { nome: "Dog", key: "17" },
-    { nome: "Cleitin", key: "18" },
-    { nome: "Pasquim", key: "19" },
-    { nome: "Mel", key: "20" },
-    { nome: "Nêssa", key: "21" },
-    { nome: "Pasquim", key: "22" },
-    { nome: "Mel", key: "23" },
-    { nome: "Nêssa", key: "24" },
+  const week_list = [
+    { nome: "Segunda", key: "1" },
+    { nome: "Terça", key: "2" },
+    { nome: "Quarta", key: "3" },
+    { nome: "Quinta", key: "4" },
+    { nome: "Sexta", key: "5" },
+    { nome: "Sábado", key: "6" },
+    { nome: "Domingo", key: "7" },
+    
 
 
   ];
@@ -47,10 +32,14 @@ const Flat_List = () => {
   //cada elemento tem que ter sua key unica, pra flatlisr diferenciar um item do outro
   //a função rendemItem vai analisar cada item da nossa flatList e aplicar essa função q vou definir no renderItem
   return (
-    <View>
-      <Text>Name week</Text>
+    <View style={{flex:1}}>
+     
+      <StatusBar  translucent={false} barStyle="light-content" />
+      <Text style={{ fontSize: 15, justifyContent:'center', alignItems:'center', fontWeight: 'bold', fontSize: 15}}> Semana </Text>
+      
       <FlatList
         data={week_list}
+        style={{ paddingVertical: 10, backgroundColor: 'black',  }}
 
         /*================================================================================================
         nessa função renderItem, ele tem o destructor que recebe como argumento o item e o index, (não vou usar o index)
@@ -59,8 +48,9 @@ const Flat_List = () => {
         renderItem={({ item, index }) => {
           return (
             <View style={styles.container}>
-              <Text>{item.nome}</Text>
-            </View>
+              <Text style={styles.text}>{item.nome}</Text>
+              
+              </View>
           );
         }}
         keyExtractor={(elemento) => String(elemento.key)}
@@ -69,16 +59,24 @@ const Flat_List = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 3,
-    borderColor: "black",
-    height: 50,
-    width: 400,
-    justifyContent: "center",
-    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "white",
+    marginTop: 5,
+    padding:1,
+    height: 60,
+    alignItems: "flex-start",
+    backgroundColor:'#fff',
+    borderRadius: 10,  
+    width: '100%',
+    borderLef: 5,
 
+  },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    alignItems: 'stretch'
   },
 });
 export default Flat_List;
