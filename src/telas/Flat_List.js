@@ -10,8 +10,6 @@ onde eu vou definir a variavel week_list, que é a variavel que contém a lista
 o segundo item a definir é o renderItem, ele é uma função, pega um item dos nossos dados 
 e vai renderizar cada um na lista, e ele tem o item e o index(indice) como cada elemento da lista*/
 
-
-
 const Flat_List = () => {
   const week_list = [
     { nome: "Segunda", key: "1" },
@@ -22,8 +20,6 @@ const Flat_List = () => {
     { nome: "Sábado", key: "6" },
     { nome: "Domingo", key: "7" },
     
-
-
   ];
 
   //lista de objetos, cada objeto vai ser um elemento da lista
